@@ -19,8 +19,24 @@
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
+            }            
+
+            #logo img {
+                width: 80px;
+                float: left;
+                display: block;
+                margin-top: 15px;
             }
 
+            #logo h1 {
+                color: #7c7c7c;
+                font-family: sans-serif;
+                float: left;
+                display: block;
+                font-size: 26px;
+                margin-top: 60px;
+                margin-left: 10px;
+            }
             .full-height {
                 height: 100vh;
             }
@@ -34,7 +50,16 @@
             .position-ref {
                 position: relative;
             }
-
+            .img-logo img{
+                width: 15%;
+                height: 100%;
+                margin-top: 15px;
+            }
+            .top-left {
+                position: absolute;
+                left: 10px;
+                top: 18px;
+            }
             .top-right {
                 position: absolute;
                 right: 10px;
@@ -66,30 +91,22 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
+            <div class="img-logo top-left">
+                <img src="/img/ifc_logo.jpg"/>
+            </div>
             @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
+            <div class="top-right links">
+                @auth
+                <a href="{{ url('/home') }}">Home</a>
+                @else
+                <a href="{{ route('login') }}">Login</a>
+                <a href="{{ route('register') }}">Register</a>
+                @endauth
+            </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+
         </div>
     </body>
 </html>
