@@ -4,15 +4,14 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRegistrationsTable extends Migration
-{
+class CreateRegistrationsTable extends Migration {
+
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('registrations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('processo_seletivo_id')->unsigned();
@@ -25,9 +24,9 @@ class CreateRegistrationsTable extends Migration
             $table->foreign('primeira_opcao_id')->references('id')->on('courses');
             $table->integer('segunda_opcao_id')->unsigned();
             $table->foreign('segunda_opcao_id')->references('id')->on('courses');
-			$table->date('data_pagamento')->nullable();
-			$table->integer('pago')->nullable();
-		    $table->date('data_inscricao');
+            $table->date('data_pagamento')->nullable();
+            $table->integer('pago')->nullable();
+            $table->date('data_inscricao');
             $table->timestamps();
         });
     }
@@ -37,8 +36,8 @@ class CreateRegistrationsTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('registrations');
     }
+
 }

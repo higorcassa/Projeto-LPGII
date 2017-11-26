@@ -4,22 +4,21 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateExemptionsTable extends Migration
-{
+class CreateExemptionsTable extends Migration {
+
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('exemptions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('inscricao_id')->unsigned();;
+            $table->integer('inscricao_id')->unsigned();            
             $table->foreign('inscricao_id')->references('id')->on('registrations');
-			$table->text('motivo');
+            $table->text('motivo');
             $table->integer('homologado');
-			$table->timestamps();
+            $table->timestamps();
         });
     }
 
@@ -28,8 +27,8 @@ class CreateExemptionsTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('exemptions');
     }
+
 }
